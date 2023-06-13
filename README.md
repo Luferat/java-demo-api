@@ -215,6 +215,9 @@ Para resolver:
  - Clique direito no console → Remove All Terminated
  - Clique direito no projeto → Run As → Maven clean
  - Rode o aplicativo novamente
+ 
+Se o problema for persistente, remova o *Lombok* e crie os códigos legados manualmente.
+ 
     
 ---
 <small><em>2023 By Luferat</em><br>
