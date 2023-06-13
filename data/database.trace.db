@@ -1,0 +1,33 @@
+2023-06-13 12:45:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE treco(\000d\000a    id BIGINT [*]NOT MULL PRIMARY KEY AUTO_INCREMENT,\000d\000a    name VARCHAR(63),\000d\000a    description VARCHAR(127)   \000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE treco(
+    id BIGINT NOT MULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(63),
+    description VARCHAR(127)   
+) [42001-214]
+2023-06-13 12:45:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE treco(\000d\000a    id INT [*]NOT MULL PRIMARY KEY AUTO_INCREMENT,\000d\000a    name VARCHAR(63),\000d\000a    description VARCHAR(127)   \000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE treco(
+    id INT NOT MULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(63),
+    description VARCHAR(127)   
+) [42001-214]
+2023-06-13 12:45:33 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE treco(\000d\000aid INT [*]NOT MULL PRIMARY KEY AUTO_INCREMENT,\000d\000aname VARCHAR(63),\000d\000adescription VARCHAR(127)   \000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, NULL, AS, DEFAULT, GENERATED, ON UPDATE, NOT NULL, NULL, AUTO_INCREMENT, DEFAULT ON NULL, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE treco(
+id INT NOT MULL PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(63),
+description VARCHAR(127)   
+) [42001-214]
+2023-06-13 12:47:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-13 12:47:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-13 12:47:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-13 12:47:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-13 12:47:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-13 12:51:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
