@@ -30,16 +30,18 @@ public class TrecoController {
 
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public String getOne(@PathVariable Long id) {
+
 		if (trecoRepository.existsById(id)) {
-			ObjectMapper mapper = new ObjectMapper();
-			Treco treco = trecoRepository.findById(id).get();
 			try {
+				ObjectMapper mapper = new ObjectMapper();
+				Treco treco = trecoRepository.findById(id).get();
 				return mapper.writeValueAsString(treco);
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
 			}
 		}
 		return "{ \"status\" : \"not found\" }";
+
 	}
 
 	@PostMapping
