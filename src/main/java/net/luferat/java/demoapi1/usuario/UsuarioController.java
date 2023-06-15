@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1.employe;
+package net.luferat.java.demoapi1.usuario;
 
 import java.util.List;
 
@@ -15,23 +15,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/users")
-public class EmployeController {
+public class UsuarioController {
 
 	@Autowired
-	private EmployeRepository employRepository;
+	private UsuarioRepository repository;
 
 	@GetMapping
-	public List<Employe> getAll() {
-		return employRepository.findAll();
+	public List<Usuario> getAll() {
+		return repository.findAll();
 	}
 
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public String getOne(@PathVariable Long id) {
 
-		if (employRepository.existsById(id)) {
+		if (repository.existsById(id)) {
 			try {
 				ObjectMapper mapper = new ObjectMapper();
-				Employe employe = employRepository.findById(id).get();
+				Usuario employe = repository.findById(id).get();
 				return mapper.writeValueAsString(employe);
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
@@ -42,8 +42,8 @@ public class EmployeController {
 	}
 
 	@PostMapping
-	public Employe post(@RequestBody Employe employe) {
-		return employRepository.save(employe);
+	public Usuario post(@RequestBody Usuario usuario) {
+		return repository.save(usuario);
 	}
 
 }
