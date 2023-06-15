@@ -1,14 +1,10 @@
-package net.luferat.java.demoapi1;
-
-import java.sql.Timestamp;
+package net.luferat.java.demoapi1.employe;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,20 +13,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Treco {
+public class Employe {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private Long id;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Timestamp date;
-	
-	@Column(length = 63)
-	private String name;
 
 	@Column(length = 127)
-	private String description;
+	private String name;
+
+	@Column(length = 255)
+	private String email;
+
+	@Column(length = 63)
+	private String password;
 
 }

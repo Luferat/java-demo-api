@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1;
+package net.luferat.java.demoapi1.treco;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class TrecoController {
 	public List<Treco> getAll() {
 		return trecoRepository.findAll();
 	}
-
+	
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public String getOne(@PathVariable Long id) {
 

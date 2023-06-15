@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1;
+package net.luferat.java.demoapi1.treco;
 
 import java.sql.Timestamp;
 
@@ -23,14 +23,17 @@ public class Treco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false)
 	private Long id;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp date;
-	
+
 	@Column(length = 63)
 	private String name;
 
 	@Column(length = 127)
 	private String description;
+
+	@Column(length = 31)
+	private String status;
 
 }

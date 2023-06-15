@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1;
+package net.luferat.java.demoapi1.treco;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
