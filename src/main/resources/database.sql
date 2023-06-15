@@ -7,8 +7,8 @@ CREATE TABLE treco (
 	status VARCHAR(31) DEFAULT 'on'
 );
 
-DROP TABLE IF EXISTS employe;
-CREATE TABLE employe (
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario (
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(127),
         email VARCHAR(255),

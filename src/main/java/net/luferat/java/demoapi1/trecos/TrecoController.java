@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1.treco;
+package net.luferat.java.demoapi1.trecos;
 
 import java.util.List;
 
@@ -21,20 +21,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TrecoController {
 
 	@Autowired
-	private TrecoRepository trecoRepository;
+	private TrecoRepository repository;
 
 	@GetMapping
 	public List<Treco> getAll() {
-		return trecoRepository.findAll();
+		return repository.findAll();
 	}
 	
 	@GetMapping(path = "/{id}", produces = "application/json")
 	public String getOne(@PathVariable Long id) {
 
-		if (trecoRepository.existsById(id)) {
+		if (repository.existsById(id)) {
 			try {
 				ObjectMapper mapper = new ObjectMapper();
-				Treco treco = trecoRepository.findById(id).get();
+				Treco treco = repository.findById(id).get();
 				return mapper.writeValueAsString(treco);
 			} catch (JsonProcessingException e) {
 				e.printStackTrace();
@@ -46,13 +46,13 @@ public class TrecoController {
 
 	@PostMapping
 	public Treco post(@RequestBody Treco treco) {
-		return trecoRepository.save(treco);
+		return repository.save(treco);
 	}
 
 	@DeleteMapping(path = "/{id}", produces = "application/json")
 	public String delete(@PathVariable Long id) {
-		if (trecoRepository.existsById(id)) {
-			trecoRepository.deleteById(id);
+		if (repository.existsById(id)) {
+			repository.deleteById(id);
 			return "{ \"status\" : \"deleted\" }";
 		}
 		return "{ \"status\" : \"error\" }";

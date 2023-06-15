@@ -1,4 +1,4 @@
-package net.luferat.java.demoapi1.employe;
+package net.luferat.java.demoapi1.usuarios;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Employe {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
