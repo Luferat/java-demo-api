@@ -14,7 +14,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
 	@Autowired
