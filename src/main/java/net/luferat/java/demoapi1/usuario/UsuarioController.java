@@ -41,7 +41,6 @@ public class UsuarioController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		Optional<Usuario> entidadeOptional = repository.findById(id);
-
 		if (entidadeOptional.isPresent()) {
 			repository.deleteById(id);
 			return ResponseEntity.noContent().build();
@@ -59,7 +58,6 @@ public class UsuarioController {
 			entidade.setName(entidadeAtualizada.getName());
 			entidade.setEmail(entidadeAtualizada.getEmail());
 			entidade.setPassword(entidadeAtualizada.getPassword());
-
 			Usuario usuarioAtualizado = repository.save(entidade);
 			return ResponseEntity.ok(usuarioAtualizado);
 		} else {
@@ -68,23 +66,18 @@ public class UsuarioController {
 	}
 
 	@PatchMapping("/{id}")
-	public ResponseEntity<Usuario> patchById(@PathVariable Long id, @RequestBody Usuario novosDadosDoUsuario) {
-		Optional<Usuario> atualDadosUsusario = repository.findById(id);
-
-		if (atualDadosUsusario.isPresent()) {
-			Usuario entidade = atualDadosUsusario.get();
-
-			if (novosDadosDoUsuario.getName() != null)
-				entidade.setName(novosDadosDoUsuario.getName());
-
-			if (novosDadosDoUsuario.getEmail() != null)
-				entidade.setEmail(novosDadosDoUsuario.getEmail());
-
-			if (novosDadosDoUsuario.getPassword() != null)
-				entidade.setPassword(novosDadosDoUsuario.getPassword());
-
-			Usuario usuarioAtualizado = repository.save(entidade);
-			return ResponseEntity.ok(usuarioAtualizado);
+	public ResponseEntity<Usuario> atualizarSuaEntidade(@PathVariable Long id, @RequestBody Usuario novaEntidade) {
+		Optional<Usuario> entidadeOptional = repository.findById(id);
+		if (entidadeOptional.isPresent()) {
+			Usuario entidade = entidadeOptional.get();
+			if (novaEntidade.getName() != null)
+				entidade.setName(novaEntidade.getName());
+			if (novaEntidade.getEmail() != null)
+				entidade.setEmail(novaEntidade.getEmail());
+			if (novaEntidade.getPassword() != null)
+				entidade.setPassword(novaEntidade.getPassword());
+			Usuario entidadeAtualizada = repository.save(entidade);
+			return ResponseEntity.ok(entidadeAtualizada);
 		} else {
 			return ResponseEntity.notFound().build();
 		}
