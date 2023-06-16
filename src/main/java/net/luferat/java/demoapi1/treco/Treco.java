@@ -1,6 +1,5 @@
 package net.luferat.java.demoapi1.treco;
 
-	import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,23 +10,11 @@ public class Treco {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	private Long id;
-
-	@Column(length = 63)
 	private String date;
-	// = "" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd
-	// HH:mm:ss"));
-
-	@Column(length = 63)
 	private String name;
-
-	@Column(length = 127)
 	private String description;
-
-	@Column(length = 31)
 	private String status;
-	// = "on";
 
 	public Long getId() {
 		return id;

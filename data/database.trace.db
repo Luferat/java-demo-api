@@ -1,28 +1,16 @@
-2023-06-15 19:47:21 jdbc[3]: exception
+2023-06-16 20:33:51 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:50:49 jdbc[3]: exception
+2023-06-16 20:33:57 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:50:50 jdbc[3]: exception
+2023-06-16 20:34:04 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:50:51 jdbc[3]: exception
+2023-06-16 20:34:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:50:52 jdbc[3]: exception
+2023-06-16 20:38:42 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:51:23 jdbc[3]: exception
+2023-06-16 20:38:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:51:27 jdbc[3]: exception
+2023-06-16 20:38:53 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:51:29 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:51:30 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:51:48 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:52:07 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:53:33 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:53:35 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
-2023-06-15 19:53:36 jdbc[3]: exception
+2023-06-16 20:38:58 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
