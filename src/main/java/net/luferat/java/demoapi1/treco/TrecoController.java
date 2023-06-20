@@ -53,6 +53,11 @@ public class TrecoController {
 
 	}
 
+	@GetMapping("/search/{query}")
+	public List<Treco> search(@PathVariable String query) {
+		return repository.findByNameContaining(query);
+	}
+
 	@PostMapping
 	public Treco post(@RequestBody Treco treco) {
 
@@ -148,7 +153,7 @@ public class TrecoController {
 			return getOne(id);
 
 		}
-		
+
 		// Se o registro não existe, retorna o JSON.
 		return "{ \"status\" : \"not found\" }";
 
