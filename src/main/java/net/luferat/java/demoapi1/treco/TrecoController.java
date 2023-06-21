@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/trecos")
 public class TrecoController {
@@ -27,10 +30,15 @@ public class TrecoController {
 		return repository.findAll();
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Treco> getOne(@PathVariable Long id) {
-		Optional<Treco> entidadeOptional = repository.findById(id);
-		return entidadeOptional.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+	@GetMapping(path = "/{id}", produces = "application/json")
+	public ResponseEntity<Object> getUserById(@PathVariable("id") Long id) {
+		Treco treco = repository.findById(id).orElse(null);
+
+		if (treco != null) {
+			return ResponseEntity.ok(treco);
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not found\"}");
+		}
 	}
 
 	@PostMapping
@@ -38,19 +46,19 @@ public class TrecoController {
 		return repository.save(treco);
 	}
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
-		Optional<Treco> entidadeOptional = repository.findById(id);
-		if (entidadeOptional.isPresent()) {
-			repository.deleteById(id);
-			return ResponseEntity.noContent().build();
+	@DeleteMapping(path = "/{id}", produces = "application/json")
+	public ResponseEntity<Object> deleteUserById(@PathVariable("id") Long id) {
+		Treco treco = repository.findById(id).orElse(null);
+		if (treco != null) {
+			repository.delete(treco);
+			return ResponseEntity.ok("{\"status\": \"deleted\"}");
 		} else {
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not-found\"}");
 		}
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Treco> putById(@PathVariable Long id, @RequestBody Treco entidadeAtualizada) {
+	@PutMapping(path = "/{id}", produces = "application/json")
+	public ResponseEntity<Object> putById(@PathVariable Long id, @RequestBody Treco entidadeAtualizada) {
 		Optional<Treco> entidadeOptional = repository.findById(id);
 		if (entidadeOptional.isPresent()) {
 			Treco entidade = entidadeOptional.get();
@@ -61,12 +69,12 @@ public class TrecoController {
 			Treco usuarioAtualizado = repository.save(entidade);
 			return ResponseEntity.ok(usuarioAtualizado);
 		} else {
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not-found\"}");
 		}
 	}
 
-	@PatchMapping("/{id}")
-	public ResponseEntity<Treco> atualizarSuaEntidade(@PathVariable Long id, @RequestBody Treco novaEntidade) {
+	@PatchMapping(path = "/{id}", produces = "application/json")
+	public ResponseEntity<Object> atualizarSuaEntidade(@PathVariable Long id, @RequestBody Treco novaEntidade) {
 		Optional<Treco> entidadeOptional = repository.findById(id);
 		if (entidadeOptional.isPresent()) {
 			Treco entidade = entidadeOptional.get();
@@ -81,8 +89,17 @@ public class TrecoController {
 			Treco entidadeAtualizada = repository.save(entidade);
 			return ResponseEntity.ok(entidadeAtualizada);
 		} else {
-			return ResponseEntity.notFound().build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not-found\"}");
 		}
+	}
+
+	@GetMapping(path = "/search/{query}", produces = "application/json")
+	public ResponseEntity<Object> buscar(@PathVariable String query) {
+		List<Treco> trecos = repository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(query, query);
+		if (trecos.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not-found\"}");
+		}
+		return ResponseEntity.ok(trecos);
 	}
 
 }
