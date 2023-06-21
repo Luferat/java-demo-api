@@ -25,15 +25,19 @@ public class TrecoController {
 	@Autowired
 	private TrecoRepository repository;
 
+	// Obtém todos os registros.
+	// Retorna uma coleção ([]) com todos os registros obtidos.
 	@GetMapping
 	public List<Treco> getAll() {
 		return repository.findAll();
 	}
 
+	// Obtém um registro pelo Id.
+	// Retorna um objeto com o registro.
+	// Caso o registro não exista, retorna {"status": "not-found"}.
 	@GetMapping(path = "/{id}", produces = "application/json")
-	public ResponseEntity<Object> getUserById(@PathVariable("id") Long id) {
+	public ResponseEntity<Object> getById(@PathVariable("id") Long id) {
 		Treco treco = repository.findById(id).orElse(null);
-
 		if (treco != null) {
 			return ResponseEntity.ok(treco);
 		} else {
@@ -41,13 +45,19 @@ public class TrecoController {
 		}
 	}
 
+	// Cria um novo registro.
+	// Retorna um objeto com o novo registro.
 	@PostMapping
 	public Treco postNew(@RequestBody Treco treco) {
 		return repository.save(treco);
 	}
 
+	// Apaga um registro pelo Id.
+	// Retorna {"status": "deleted"}.
+	// Caso o registro não exista, retorna {"status": "not-found"}.
+	// CUIDADO! Este método realmente elimina o registro do banco de dados → DELETE.
 	@DeleteMapping(path = "/{id}", produces = "application/json")
-	public ResponseEntity<Object> deleteUserById(@PathVariable("id") Long id) {
+	public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
 		Treco treco = repository.findById(id).orElse(null);
 		if (treco != null) {
 			repository.delete(treco);
@@ -57,8 +67,11 @@ public class TrecoController {
 		}
 	}
 
+	// Atualiza um registro completo pelo Id.
+	// Retorna um objeto com o registro atualizado.
+	// Caso o registro não exista, retorna {"status": "not-found"}.
 	@PutMapping(path = "/{id}", produces = "application/json")
-	public ResponseEntity<Object> putById(@PathVariable Long id, @RequestBody Treco entidadeAtualizada) {
+	public ResponseEntity<Object> put(@PathVariable Long id, @RequestBody Treco entidadeAtualizada) {
 		Optional<Treco> entidadeOptional = repository.findById(id);
 		if (entidadeOptional.isPresent()) {
 			Treco entidade = entidadeOptional.get();
@@ -73,8 +86,12 @@ public class TrecoController {
 		}
 	}
 
+	// Atualiza um registro parcialmente, pelo Id.
+	// Somente os campos informados terão os valores atualizados.
+	// Retorna um objeto com o registro atualizado.
+	// Caso o registro não exista, retorna {"status": "not-found"}.
 	@PatchMapping(path = "/{id}", produces = "application/json")
-	public ResponseEntity<Object> atualizarSuaEntidade(@PathVariable Long id, @RequestBody Treco novaEntidade) {
+	public ResponseEntity<Object> patch(@PathVariable Long id, @RequestBody Treco novaEntidade) {
 		Optional<Treco> entidadeOptional = repository.findById(id);
 		if (entidadeOptional.isPresent()) {
 			Treco entidade = entidadeOptional.get();
@@ -93,8 +110,16 @@ public class TrecoController {
 		}
 	}
 
+	// Obtém os registros à partir de uma "string de busca".
+	// Por exemplo, para pesquisar por "biscoito":
+	// GET → http://localhost:8080/trecos/search/biscoito
+	// A busca é "case-insensitive", ou seja, busca por "biscoito" ou "BISCOITO" tem
+	// o mesmo resultado.
+	// Retorna uma coleção ([]) com todos os registros em que os campos "name" e/ou
+	// "description" contenham a "string de busca".
+	// Se não encontrar nada, retorna {"status": "not-found"}.
 	@GetMapping(path = "/search/{query}", produces = "application/json")
-	public ResponseEntity<Object> buscar(@PathVariable String query) {
+	public ResponseEntity<Object> search(@PathVariable String query) {
 		List<Treco> trecos = repository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(query, query);
 		if (trecos.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"status\": \"not-found\"}");
