@@ -24,12 +24,10 @@ public class TrecoController {
 
 	@Autowired
 	private TrecoRepository repository;
-
+	
 	@GetMapping
 	public List<Treco> getAll() {
-
-		// O método "findAll()" do JPA retorna todos os registros em uma lista.
-		return repository.findAll();
+		return repository.findAllWithStatusOnOrderByDateDesc();
 	}
 
 	@GetMapping(path = "/{id}", produces = "application/json")
