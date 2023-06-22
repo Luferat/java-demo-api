@@ -7,5 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TrecoRepository extends JpaRepository<Treco, Long> {
-	List<Treco> findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String queryName, String queryRepository);
+	// Método que retorna a busca por "String queryName" no campos "name" e por
+	// "String queryRepository" no campo "description". A busca é
+	// "case-insensitive".
+	List<Treco> findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(String queryName,
+			String queryRepository);
 }
