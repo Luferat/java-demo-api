@@ -15,8 +15,20 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
 	final String DEFAULTPARAMS = "status = 'on'";
 
+	// Lista os comentários mais recentes.
 	@Query(value = "SELECT * FROM comments WHERE " + DEFAULTPARAMS
 			+ " ORDER BY date DESC LIMIT :limit  ", nativeQuery = true)
 	List<Comment> findLastComments(@Param("limit") int limit);
+
+	// Pesquisa por comentários pelo autor, artigo e comentário.
+	@Query(value = "SELECT * FROM comments WHERE " + DEFAULTPARAMS
+			+ " AND uid = :uid AND article = :articleId AND comment = :comment", nativeQuery = true)
+	List<Comment> findCommentsByAuthorArticleAndContent(@Param("uid") String uid, @Param("articleId") Long articleId,
+			@Param("comment") String comment);
+
+	// Salva um novo comentário.
+	@Query(value = "SELECT * FROM comments WHERE " + DEFAULTPARAMS
+			+ " AND article = :articleId ORDER BY date DESC", nativeQuery = true)
+	List<Comment> findAllCommentByArticle(@Param("articleId") Long articleId);
 
 }

@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 @CrossOrigin
 @RestController
@@ -28,14 +27,11 @@ public class ArticleController {
 
 	// Lista um artigo válido pelo Id.
 	@GetMapping(path = "/{id}")
-	public Article getOne(@PathVariable Long id) throws JsonProcessingException {
-		if (repository.existsById(id)) {
-			return repository.findArticleById(id);
-		}
-		return null;
+	public Article getOne(@PathVariable Long id) {
+		return repository.findArticleById(id);
 	}
 
-	@GetMapping("/views/{limit}")
+	@GetMapping(path = "/views/{limit}")
 	public List<Article> getByViews(@PathVariable int limit) {
 		return repository.findMostViewedArticles(limit);
 	}
@@ -44,6 +40,18 @@ public class ArticleController {
 	public String updateViews(@PathVariable Long id) {
 		repository.updateViews(id);
 		return "{\"status\": \"success\"}";
+	}
+
+	// Obtém os artigos do autor.
+	// Observe que a rota contém 3 parâmetros numéricos:
+	// {uid} → Id do autor do artigo
+	// {art} → Id do artigo que será excluído da listagem
+	// {lim} → Quantos artigos serão obtidos
+	// Exemplo de rota: http://domain.api/articles/author?uid=1&art=2&lim=5
+	@GetMapping(path = "/author")
+	public List<Article> getByAuthor(@RequestParam("uid") Long uid, @RequestParam("art") Long articleId,
+			@RequestParam("lim") int limit) {
+		return repository.findAllByAuthor(uid, articleId, limit);
 	}
 
 }

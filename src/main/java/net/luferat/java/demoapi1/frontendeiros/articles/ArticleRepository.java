@@ -30,6 +30,10 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	@Query(value = "SELECT * FROM articles WHERE " + DEFAULTPARAMS + " AND id = :id", nativeQuery = true)
 	Article findArticleById(@Param("id") Long id);
 
+	// Obtém os artigos de um autor, exceto o artigo com "id", em ordem aleatória.
+	@Query(value = "SELECT * FROM articles WHERE " + DEFAULTPARAMS + " AND author = :uid AND id != :articleId ORDER BY RAND() LIMIT :limit", nativeQuery = true)
+	List<Article> findAllByAuthor(@Param("uid") Long uid, @Param("articleId") Long articleId, @Param("limit") int limit);
+
 	// Verifica se um artigo existe ou é ativo.
 	@Query(value = "SELECT CASE WHEN COUNT(id) > 0 THEN true ELSE false END FROM articles WHERE " + DEFAULTPARAMS
 			+ " AND id = :id", nativeQuery = true)

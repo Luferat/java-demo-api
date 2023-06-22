@@ -12,6 +12,6 @@ import jakarta.transaction.Transactional;
 @Transactional
 @Repository
 public interface TeamRepository extends JpaRepository<Team, Long> {
-	@Query(value = "SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = :id", nativeQuery = true)
+	@Query(value = "SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM users WHERE id = :id", nativeQuery = true)
 	Optional<Team> findById(@Param("id") Long id);
 }

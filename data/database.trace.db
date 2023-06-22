@@ -188,3 +188,48 @@ INSERT INTO comments (date, name, photo, email, uid, article, comment, status) V
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-06-22 15:20:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:21:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:21:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:22:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:22:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:22:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:22:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:22:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:27 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-22 15:23:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
+SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
