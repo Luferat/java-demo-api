@@ -32,17 +32,16 @@ public class CommentController {
 
 	// Busca po um comentário específico.
 	// Exemplo:
-	// http://domínio.api/comments/find?uid=Q1W2E3R4T5Y6U7&art=2&txt=Comentário do
-	// usuário
+	// GET → http://domínio.api/comments/find?uid=Q1W2E3R4T5Y6U7&art=2&txt=Comentário do usuário
 	// Busca por comentários que contenham exatamente
 	// Id do usuário = "Q1W2E3R4T5Y6U7" E
 	// Id do artigo = 2 E
 	// Texto do comentário = "Comentário do usuário"
 	// Serve para evitar que um mesmo comentário seja enviado de forma repetida.
 	@GetMapping(path = "/find")
-	public List<Comment> alreadyExists(@RequestParam("uid") String uid, @RequestParam("art") Long articleId,
-			@RequestParam("txt") String comment) {
-		return repository.findCommentsByAuthorArticleAndContent(uid, articleId, comment);
+	public List<Comment> alreadyExists(@RequestParam("uid") String uid, @RequestParam("art") Long art,
+			@RequestParam("txt") String txt) {
+		return repository.findCommentsByAuthorArticleAndContent(uid, art, txt);
 	}
 
 	@PostMapping

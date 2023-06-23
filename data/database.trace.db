@@ -233,3 +233,23 @@ SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FR
 2023-06-22 15:23:59 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TEAM" not found; SQL statement:
 SELECT id, bio, birth, date, email, name, '' AS password, photo, status, type FROM team WHERE id = ? [42102-214]
+2023-06-23 10:26:50 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:29:35 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:31:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:43:26 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:44:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:46:13 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:46:28 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:47:36 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:47:44 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]
+2023-06-23 10:47:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-214]

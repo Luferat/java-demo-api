@@ -22,9 +22,9 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 
 	// Pesquisa por comentários pelo autor, artigo e comentário.
 	@Query(value = "SELECT * FROM comments WHERE " + DEFAULTPARAMS
-			+ " AND uid = :uid AND article = :articleId AND comment = :comment", nativeQuery = true)
-	List<Comment> findCommentsByAuthorArticleAndContent(@Param("uid") String uid, @Param("articleId") Long articleId,
-			@Param("comment") String comment);
+			+ " AND uid = :uid AND article = :art AND comment = :txt", nativeQuery = true)
+	List<Comment> findCommentsByAuthorArticleAndContent(@Param("uid") String uid, @Param("art") Long art,
+			@Param("txt") String txt);
 
 	// Salva um novo comentário.
 	@Query(value = "SELECT * FROM comments WHERE " + DEFAULTPARAMS
