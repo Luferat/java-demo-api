@@ -54,4 +54,12 @@ public class ArticleController {
 		return repository.findAllByAuthor(uid, articleId, limit);
 	}
 
+	// Busca por uma palavra ou termo nos campos "title", "resume" e "content".
+	// As buascas são "case-insensitive". Por exemplo, para procurar por "Biscoito":
+	// GET → http://domain.api/articles/find?q=Biscoito
+	@GetMapping(path = "/find")
+	public List<Article> findArticleByWord(@RequestParam("q") String q) {
+		return repository.findByWord(q);
+	}
+
 }
