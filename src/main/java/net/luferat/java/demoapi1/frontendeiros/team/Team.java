@@ -13,96 +13,96 @@ public class Team {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String date;
-	private String name;
-	private String email;
-	private String password;
-	private String photo;
-	private String bio;
-	private String birth;
-	private String type;
+	private Long uid;
+	private String udate;
+	private String uname;
+	private String uemail;
+	private String upassword;
+	private String uphoto;
+	private String ubio;
+	private String ubirth;
+	private String utype;
 	@Column(length = 3)
-	private String status;
+	private String ustatus;
 
-	public Long getId() {
-		return id;
+	public Long getUid() {
+		return uid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setUid(Long uid) {
+		this.uid = uid;
 	}
 
-	public String getDate() {
-		return date;
+	public String getUdate() {
+		return udate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setUdate(String udate) {
+		this.udate = udate;
 	}
 
-	public String getName() {
-		return name;
+	public String getUname() {
+		return uname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUemail() {
+		return uemail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUemail(String uemail) {
+		this.uemail = uemail;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getUpassword() {
+		return upassword;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUpassword(String upassword) {
+		this.upassword = upassword;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getUphoto() {
+		return uphoto;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setUphoto(String uphoto) {
+		this.uphoto = uphoto;
 	}
 
-	public String getBio() {
-		return bio;
+	public String getUbio() {
+		return ubio;
 	}
 
-	public void setBio(String bio) {
-		this.bio = bio;
+	public void setUbio(String ubio) {
+		this.ubio = ubio;
 	}
 
-	public String getBirth() {
-		return birth;
+	public String getUbirth() {
+		return ubirth;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setUbirth(String ubirth) {
+		this.ubirth = ubirth;
 	}
 
-	public String getType() {
-		return type;
+	public String getUtype() {
+		return utype;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setUtype(String utype) {
+		this.utype = utype;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getUstatus() {
+		return ustatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setUstatus(String ustatus) {
+		this.ustatus = ustatus;
 	}
 
 }

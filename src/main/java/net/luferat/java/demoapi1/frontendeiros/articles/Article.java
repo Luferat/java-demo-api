@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import net.luferat.java.demoapi1.frontendeiros.team.Team;
 
 @Entity
 @Table(name = "articles")
@@ -13,88 +16,94 @@ public class Article {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String date;
-	private Long author;
-	private String title;
-	private String thumbnail;
-	private String resume;
+	private Long aid;
+	private String adate;
+
+	@ManyToOne
+	@JoinColumn(name = "aauthor")
+	private Team aauthor;
+
+	private String atitle;
+	private String athumbnail;
+	private String aresume;
+
 	@Column(columnDefinition = "LONGTEXT")
-	private String content;
-	private Long views;
+	private String acontent;
+	private Long aviews;
+
 	@Column(length = 3)
-	private String status;
+	private String astatus;
 
-	public Long getid() {
-		return id;
+	public Long getAid() {
+		return aid;
 	}
 
-	public void setid(Long id) {
-		this.id = id;
+	public void setAid(Long aid) {
+		this.aid = aid;
 	}
 
-	public String getdate() {
-		return date;
+	public String getAdate() {
+		return adate;
 	}
 
-	public void setdate(String date) {
-		this.date = date;
+	public void setAdate(String adate) {
+		this.adate = adate;
 	}
 
-	public Long getauthor() {
-		return author;
+	public Team getAauthor() {
+		return aauthor;
 	}
 
-	public void setauthor(Long author) {
-		this.author = author;
+	public void setAauthor(Team aauthor) {
+		this.aauthor = aauthor;
 	}
 
-	public String gettitle() {
-		return title;
+	public String getAtitle() {
+		return atitle;
 	}
 
-	public void settitle(String title) {
-		this.title = title;
+	public void setAtitle(String atitle) {
+		this.atitle = atitle;
 	}
 
-	public String getthumbnail() {
-		return thumbnail;
+	public String getAthumbnail() {
+		return athumbnail;
 	}
 
-	public void setthumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
+	public void setAthumbnail(String athumbnail) {
+		this.athumbnail = athumbnail;
 	}
 
-	public String getresume() {
-		return resume;
+	public String getAresume() {
+		return aresume;
 	}
 
-	public void setresume(String resume) {
-		this.resume = resume;
+	public void setAresume(String aresume) {
+		this.aresume = aresume;
 	}
 
-	public String getcontent() {
-		return content;
+	public String getAcontent() {
+		return acontent;
 	}
 
-	public void setcontent(String content) {
-		this.content = content;
+	public void setAcontent(String acontent) {
+		this.acontent = acontent;
 	}
 
-	public Long getviews() {
-		return views;
+	public Long getAviews() {
+		return aviews;
 	}
 
-	public void setviews(Long views) {
-		this.views = views;
+	public void setAviews(Long aviews) {
+		this.aviews = aviews;
 	}
 
-	public String getstatus() {
-		return status;
+	public String getAstatus() {
+		return astatus;
 	}
 
-	public void setstatus(String status) {
-		this.status = status;
+	public void setAstatus(String astatus) {
+		this.astatus = astatus;
 	}
 
 }

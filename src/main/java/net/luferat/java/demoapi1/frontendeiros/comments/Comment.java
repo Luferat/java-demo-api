@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import net.luferat.java.demoapi1.frontendeiros.articles.Article;
 
 @Entity
 @Table(name = "comments")
@@ -13,88 +16,93 @@ public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
-	String date;
-	String name;
-	String photo;
-	String email;
-	String uid;
-	Long article;
+	private Long cid;
+	private String cdate;
+	private String fbname;
+	private String fbphoto;
+	private String fbemail;
+	private String fbuid;
+
+	@ManyToOne
+	@JoinColumn(name = "carticle")
+	private Article carticle;
+
 	@Column(columnDefinition = "TEXT")
-	String comment;
+	private String ccomment;
+
 	@Column(length = 3)
-	String status;
+	private String cstatus;
 
-	public Long getId() {
-		return id;
+	public Long getCid() {
+		return cid;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCid(Long cid) {
+		this.cid = cid;
 	}
 
-	public String getDate() {
-		return date;
+	public String getCdate() {
+		return cdate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
 	}
 
-	public String getName() {
-		return name;
+	public String getFbname() {
+		return fbname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFbname(String fbname) {
+		this.fbname = fbname;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getFbphoto() {
+		return fbphoto;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setFbphoto(String fbphoto) {
+		this.fbphoto = fbphoto;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getFbemail() {
+		return fbemail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setFbemail(String fbemail) {
+		this.fbemail = fbemail;
 	}
 
-	public String getUid() {
-		return uid;
+	public String getFbuid() {
+		return fbuid;
 	}
 
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setFbuid(String fbuid) {
+		this.fbuid = fbuid;
 	}
 
-	public Long getArticle() {
-		return article;
+	public Article getCarticle() {
+		return carticle;
 	}
 
-	public void setArticle(Long article) {
-		this.article = article;
+	public void setCarticle(Article carticle) {
+		this.carticle = carticle;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getCcomment() {
+		return ccomment;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setCcomment(String ccomment) {
+		this.ccomment = ccomment;
 	}
 
-	public String getStatus() {
-		return status;
+	public String getCstatus() {
+		return cstatus;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setCstatus(String cstatus) {
+		this.cstatus = cstatus;
 	}
 
 }

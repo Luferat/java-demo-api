@@ -2,7 +2,6 @@ package net.luferat.java.demoapi1.frontendeiros.articles;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -16,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/articles")
 public class ArticleController {
 
-	@Autowired
-	private ArticleRepository repository;
+	private final ArticleRepository repository;
+
+	public ArticleController(ArticleRepository repository) {
+		this.repository = repository;
+	}
 
 	// Lista todos os artigos válidos.
 	@GetMapping
@@ -31,6 +33,7 @@ public class ArticleController {
 		return repository.findArticleById(id);
 	}
 
+	// Lista artigos mais visualizados.
 	@GetMapping(path = "/views/{limit}")
 	public List<Article> getByViews(@PathVariable int limit) {
 		return repository.findMostViewedArticles(limit);
@@ -60,6 +63,11 @@ public class ArticleController {
 	@GetMapping(path = "/find")
 	public List<Article> findArticleByWord(@RequestParam("q") String q) {
 		return repository.findByWord(q);
+	}
+
+	@GetMapping(path = "/authordata")
+	public List<Article> getPosts() {
+		return repository.findArticlesWithUserData();
 	}
 
 }

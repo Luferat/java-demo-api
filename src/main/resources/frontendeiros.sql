@@ -1,14 +1,14 @@
+-- Insere dados fake na tabela 'users'.
+INSERT INTO users (udate, uname, uemail, upassword, uphoto, ubio, ubirth, utype, ustatus) VALUES
+('2023-06-01 10:11:12', 'Joca da Silva', 'joca@silva.com', 'senha123', 'https://randomuser.me/api/portraits/men/52.jpg', 'Computador de rosquinhas.', '2000-10-11', 'author', 'on'),
+('2023-06-02 20:21:22', 'Setembrino Trecatapas', 'set@brinocom', 'senha123', 'https://randomuser.me/api/portraits/men/53.jpg', 'Catador de latinhas de cerveja cheias.', '1080-12-14', 'moderator', 'on');
+
 -- Insere artigos fake na tabela 'articles'.
-INSERT INTO articles ( date, author, title, thumbnail, resume, content, views, status ) VALUES 
+INSERT INTO articles ( adate, aauthor, atitle, athumbnail, aresume, acontent, aviews, astatus ) VALUES 
 ( '2023-06-01 10:11:12', '1', 'Primeiro artigo da parada', 'https://picsum.photos/200', 'Este é o primeiro artigo do nosso blog.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ultrices leo. Vivamus in suscipit quam. Sed posuere erat non massa vehicula laoreet.', '0', 'on' ),
 ( '2023-06-08 23:24:25', '1', 'Mais um artigo para o blog', 'https://picsum.photos/199', 'Resumo do artigo que va aparecer no blog', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ultrices leo. Vivamus in suscipit quam. Sed posuere erat non massa vehicula laoreet.', '0', 'on' ),
 ( '2023-06-10 12:44:55', '1', 'Próximo artigo para do blog', 'https://picsum.photos/198', 'Esse é só mais um artigo fake', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ultrices leo. Vivamus in suscipit quam. Sed posuere erat non massa vehicula laoreet.', '0', 'on' ),
 ( '2023-06-05 15:16:17', '1', 'Segundo artigo da parada', 'https://picsum.photos/201', 'Este é o segundo artigo do nosso blog.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a ultrices leo. Vivamus in suscipit quam. Sed posuere erat non massa vehicula laoreet.', '0', 'on' );
-
--- Insere dados fake na tabela 'users'.
-INSERT INTO users (date, name, email, password, photo, bio, birth, type, status) VALUES
-('2023-06-01 10:11:12', 'Joca da Silva', 'joca@silva.com', 'senha123', 'https://randomuser.me/api/portraits/men/52.jpg', 'Computador de rosquinhas.', '2000-10-11', 'author', 'on'),
-('2023-06-02 20:21:22', 'Setembrino Trecatapas', 'set@brinocom', 'senha123', 'https://randomuser.me/api/portraits/men/53.jpg', 'Catador de latinhas de cerveja cheias.', '1080-12-14', 'moderator', 'on');
 
 -- Insere dados fake na tabela 'social'.
 INSERT INTO social (uid, name, link, status) VALUES
