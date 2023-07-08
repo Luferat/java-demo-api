@@ -15,11 +15,11 @@ import jakarta.transaction.Transactional;
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
 	// Lista todos os campos, exceto 'password'.
-	final String DEFAULTFIELDS = "id, bio, birth, date, email, name, '' AS password, photo, status, type";
+	final String DEFAULTFIELDS = "uid, ubio, ubirth, udate, uemail, uname, '' AS upassword, uphoto, ustatus, utype";
 
-	@Query(value = "SELECT " + DEFAULTFIELDS + " FROM users WHERE id = :id", nativeQuery = true)
+	@Query(value = "SELECT " + DEFAULTFIELDS + " FROM users WHERE uid = :id", nativeQuery = true)
 	Optional<Team> findById(@Param("id") Long id);
 
-	@Query(value = "SELECT " + DEFAULTFIELDS + " FROM users WHERE status = 'on'", nativeQuery = true)
+	@Query(value = "SELECT " + DEFAULTFIELDS + " FROM users WHERE ustatus = 'on'", nativeQuery = true)
 	List<Team> findAllUsers();
 }

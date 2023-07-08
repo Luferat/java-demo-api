@@ -24,7 +24,7 @@ public class ArticleController {
 	// Lista todos os artigos válidos.
 	@GetMapping
 	public List<Article> getAll() {
-		return repository.findAllValidArticles();
+		return repository.findArticlesWithUserData();
 	}
 
 	// Lista um artigo válido pelo Id.
@@ -65,9 +65,8 @@ public class ArticleController {
 		return repository.findByWord(q);
 	}
 
-	@GetMapping(path = "/authordata")
-	public List<Article> getPosts() {
-		return repository.findArticlesWithUserData();
-	}
-
+	/*
+	 * @GetMapping(path = "/authordata") public List<Article> getPosts() { return
+	 * repository.findArticlesWithUserData(); }
+	 */
 }
