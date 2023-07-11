@@ -18,7 +18,7 @@ INSERT INTO social (uid, name, link, status) VALUES
 ('2', 'Instagram', 'https://instagram.com', 'on');
 
 -- Insere dados fake na tabela 'comments'.
-INSERT INTO comments (date, name, photo, email, uid, article, comment, status) VALUES
+INSERT INTO comments (cdate, fbname, fbphoto, fbemail, fbuid, carticle, ccomment, cstatus) VALUES
 ('2023-06-02 10:10:10', 'Ermenilda', 'https://randomuser.me/api/portraits/women/80.jpg', 'erme@nilcda.com', 'q1w2e3r4t5y5', '3', 'Somente mais um comentário.', 'on'),
 ('2023-06-02 10:20:30', 'Serenézio', 'https://randomuser.me/api/portraits/men/80.jpg', 'sere@nezio.com', 'w34r5rt6tyy7y', '3', 'Somente mais outro comentário.', 'on'),
 ('2023-06-09 10:10:10', 'Ermenilda', 'https://randomuser.me/api/portraits/women/80.jpg', 'erme@nilcda.com', 'q1w2e3r4t5y5', '2', 'Somente mais um comentário.', 'on'),

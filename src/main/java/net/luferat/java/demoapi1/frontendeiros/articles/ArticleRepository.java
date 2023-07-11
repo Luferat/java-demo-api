@@ -16,11 +16,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 
 	// Constante de busca por artigos.
 	final String DEFAULTPARAMS = "adate <= NOW() AND astatus = 'on'";
-	final String NOUSERPASSWORD = " '' as upassword";
-
-	// Obtém todos os artigos ordenados pela data decrescente.
-	@Query(value = "SELECT * FROM articles WHERE " + DEFAULTPARAMS + " ORDER BY adate DESC", nativeQuery = true)
-	List<Article> findAllValidArticles();
 
 	// Obtém os artigos mais visualizados decrescente.
 	@Query(value = "SELECT * FROM articles WHERE " + DEFAULTPARAMS
@@ -54,6 +49,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	List<Article> findByWord(@Param("query") String query);
 
 	// Busca artigos com os dados do autor.
-	@Query(value = "SELECT articles.*, uid, ubio, ubirth, udate, uemail, uname, '' AS upassword, uphoto, ustatus, utype FROM articles INNER JOIN users WHERE adate <= NOW() AND astatus = 'on' ORDER BY adate DESC", nativeQuery = true)
+	@Query(value = "SELECT * FROM articles WHERE adate <= NOW() AND astatus = 'on' ORDER BY adate DESC", nativeQuery = true)
 	List<Article> findArticlesWithUserData();
 }

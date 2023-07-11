@@ -1,5 +1,7 @@
 package net.luferat.java.demoapi1.frontendeiros.team;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
+// @JsonIgnoreProperties(value = {"upassword"})
 public class Team {
 
 	@Id
@@ -17,6 +20,7 @@ public class Team {
 	private String udate;
 	private String uname;
 	private String uemail;
+	@JsonIgnore
 	private String upassword;
 	private String uphoto;
 	private String ubio;
